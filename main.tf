@@ -2,6 +2,13 @@
 # SPDX-License-Identifier: MPL-2.0
 
 terraform {
+  cloud {
+    organization = "Delistoianov"
+
+    workspaces {
+      name = "learn-terraform-github-actions"
+    }
+  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -72,3 +79,4 @@ resource "aws_security_group" "web-sg" {
 output "web-address" {
   value = "${aws_instance.web.public_dns}:8080"
 }
+
